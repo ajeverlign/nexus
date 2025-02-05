@@ -49,11 +49,11 @@ export default function QRCodeGenerator() {
       </div>
 
       <h1 className="text-3xl font-bold mb-3 text-center text-gray-800 flex items-center justify-center">
-  `      Latent.AI - Nexus Team 🚀
+  `      Latent.AI 🚀
         </h1>
         <div className="text-center space-y-2 mb-6">
         <p className="text-xl text-blue-600 font-semibold">
-            🎁 Mystery Prize Hunt! 🎁
+            🎁 One Step Away From Your Prize! 🎁
         </p>
         <p className="text-gray-600">
             Welcome to our special event! Enter your name to reveal your unique question 
