@@ -1,14 +1,18 @@
 'use client';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function QRCodeGenerator() {
   const [name, setName] = useState('');
   const [qrCodeUrl, setQrCodeUrl] = useState('');
 
   useEffect(() => {
-    if (name) {
-      const landingUrl = `${window.location.origin}/landing?name=${name}`;
+    if (name.trim()) {
+      const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+      const landingUrl = `${baseUrl}/landing?name=${encodeURIComponent(name)}`;
       setQrCodeUrl(`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(landingUrl)}`);
+    } else {
+      setQrCodeUrl('');
     }
   }, [name]);
 
@@ -29,16 +33,27 @@ export default function QRCodeGenerator() {
         />
       </div>
       
-      {name && (
+      {qrCodeUrl && (
         <div className="flex flex-col items-center">
-          <img
-            src={qrCodeUrl}
-            alt="QR Code"
-            className="border rounded-lg mb-4"
-          />
+          <div className="relative w-[200px] h-[200px] mb-4">
+            <Image
+              src={qrCodeUrl}
+              alt="QR Code"
+              fill
+              className="border rounded-lg"
+            />
+          </div>
           <p className="text-sm text-gray-500 text-center">
-            Scan to open the landing page
+            Scan this QR code to view the welcome page
           </p>
+          <a 
+            href={qrCodeUrl.replace('https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=', '')} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:text-blue-600 mt-2 text-sm"
+          >
+            Open Link Directly
+          </a>
         </div>
       )}
     </div>
