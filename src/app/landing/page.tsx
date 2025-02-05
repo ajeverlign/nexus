@@ -14,13 +14,6 @@ function WelcomeContent() {
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-8">
             <Image
-              src="/logos/NexusByEverlign.jpg"
-              alt="Nexus Logo"
-              width={120}
-              height={40}
-              className="h-10 w-auto"
-            />
-            <Image
               src="/logos/LatentAilogo.png"
               alt="Latent.ai Logo"
               width={120}

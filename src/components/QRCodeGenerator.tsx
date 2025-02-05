@@ -25,13 +25,6 @@ export default function QRCodeGenerator() {
       <div className="flex justify-between items-center mb-8">
         <div className="flex items-center space-x-4">
           <Image
-            src="/logos/NexusByEverlign.jpg"
-            alt="Nexus Logo"
-            width={100}
-            height={30}
-            className="h-8 w-auto"
-          />
-          <Image
             src="/logos/LatentAilogo.png"
             alt="Latent.ai Logo"
             width={100}
@@ -49,7 +42,7 @@ export default function QRCodeGenerator() {
       </div>
 
       <h1 className="text-3xl font-bold mb-3 text-center text-gray-800 flex items-center justify-center">
-  `      Latent.AI 🚀
+        Latent.AI 🚀
         </h1>
         <div className="text-center space-y-2 mb-6">
         <p className="text-xl text-blue-600 font-semibold">
@@ -59,7 +52,7 @@ export default function QRCodeGenerator() {
             Welcome to our special event! Enter your name to reveal your unique question 
             and a chance to win an exciting prize! 🏆
         </p>
-        </div>`
+        </div>
       
       {/* Name Input */}
       <div className="mb-6">
@@ -78,7 +71,7 @@ export default function QRCodeGenerator() {
       {/* QR Code Display */}
       {qrCodeUrl && landingUrl && (
         <div className="flex flex-col items-center">
-          <div className="relative w-[200px] h-[200px] mb-4">
+          <div className="relative w-[150px] h-[150px] mb-4">
             <Image
               src={qrCodeUrl}
               alt="QR Code"
