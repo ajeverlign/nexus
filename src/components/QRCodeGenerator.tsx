@@ -48,12 +48,18 @@ export default function QRCodeGenerator() {
         />
       </div>
 
-      <h1 className="text-2xl font-bold mb-2 text-center text-gray-800">
-        Nexus 2025 QR Generator
-      </h1>
-      <p className="text-gray-600 text-center mb-6">
-        Generate your personalized event QR code
-      </p>
+      <h1 className="text-3xl font-bold mb-3 text-center text-gray-800 flex items-center justify-center">
+  `      Latent.AI - Nexus Team 🚀
+        </h1>
+        <div className="text-center space-y-2 mb-6">
+        <p className="text-xl text-blue-600 font-semibold">
+            🎁 Mystery Prize Hunt! 🎁
+        </p>
+        <p className="text-gray-600">
+            Welcome to our special event! Enter your name to reveal your unique question 
+            and a chance to win an exciting prize! 🏆
+        </p>
+        </div>`
       
       {/* Name Input */}
       <div className="mb-6">
