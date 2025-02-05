@@ -5,13 +5,13 @@ import Image from 'next/image';
 export default function QRCodeGenerator() {
   const [name, setName] = useState('');
   const [qrCodeUrl, setQrCodeUrl] = useState('');
-  const [landingUrl, setLandingUrl] = useState('');  // Add this state
+  const [landingUrl, setLandingUrl] = useState('');
 
   useEffect(() => {
     if (name.trim()) {
       const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
       const newLandingUrl = `${baseUrl}/landing?name=${encodeURIComponent(name)}`;
-      setLandingUrl(newLandingUrl);  // Store the landing URL
+      setLandingUrl(newLandingUrl);
       setQrCodeUrl(`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(newLandingUrl)}`);
     } else {
       setQrCodeUrl('');
@@ -20,18 +20,16 @@ export default function QRCodeGenerator() {
   }, [name]);
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-xl max-w-md w-full">
-      {/* Header with Logos */}
+    <div className="bg-white p-8 rounded-lg shadow-xl max-w-md w-full relative min-h-[600px]">
+      {/* Top Logos */}
       <div className="flex justify-between items-center mb-8">
-        <div className="flex items-center space-x-4">
-          <Image
-            src="/logos/LatentAilogo.png"
-            alt="Latent.ai Logo"
-            width={100}
-            height={30}
-            className="h-6 w-auto"
-          />
-        </div>
+        <Image
+          src="/logos/LatentAilogo.png"
+          alt="Latent.ai Logo"
+          width={100}
+          height={30}
+          className="h-6 w-auto"
+        />
         <Image
           src="/logos/Nexus2025.jpg"
           alt="Nexus 2025"
@@ -41,19 +39,41 @@ export default function QRCodeGenerator() {
         />
       </div>
 
-      <h1 className="text-3xl font-bold mb-3 text-center text-gray-800 flex items-center justify-center">
-        Latent.AI 🚀
+      {/* Center Logo */}
+      <div className="flex justify-center mb-6">
+        <Image
+          src="/logos/NexusByEverlign.jpg"
+          alt="Nexus by Everlign"
+          width={200}
+          height={60}
+          className="w-48 h-auto"
+        />
+      </div>
+
+      {/* Title with Latent.AI logo */}
+      <div className="flex items-center justify-center gap-2 mb-3">
+        <Image
+          src="/logos/LatentAilogo.png"
+          alt="Latent.ai Logo"
+          width={30}
+          height={30}
+          className="h-6 w-auto"
+        />
+        <h1 className="text-3xl font-bold text-gray-800">
+          LATENT.AI
         </h1>
-        <div className="text-center space-y-2 mb-6">
+      </div>
+
+      <div className="text-center space-y-2 mb-6">
         <p className="text-xl text-blue-600 font-semibold">
-            🎁 One Step Away From Your Prize! 🎁
+          🎁 One Step Away From Your Prize! 🎁
         </p>
         <p className="text-gray-600">
-            Welcome to our special event! Enter your name to reveal your unique question 
-            and a chance to win an exciting prize! 🏆
+          Welcome to our special event! Enter your name to reveal your unique question 
+          and a chance to win an exciting prize! 🏆
         </p>
-        </div>
-      
+      </div>
+
       {/* Name Input */}
       <div className="mb-6">
         <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -67,7 +87,7 @@ export default function QRCodeGenerator() {
           placeholder="Type your name..."
         />
       </div>
-      
+
       {/* QR Code Display */}
       {qrCodeUrl && landingUrl && (
         <div className="flex flex-col items-center">
@@ -82,9 +102,9 @@ export default function QRCodeGenerator() {
           <p className="text-sm text-gray-600 text-center mb-4">
             Scan this QR code to view your question
           </p>
-          <a 
-            href={landingUrl}  // Use the stored landing URL directly
-            target="_blank" 
+          <a
+            href={landingUrl}
+            target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 hover:text-blue-700 text-sm font-medium"
           >
@@ -92,6 +112,22 @@ export default function QRCodeGenerator() {
           </a>
         </div>
       )}
+
+      {/* Footer */}
+      <div className="absolute bottom-4 left-0 right-0 text-center">
+        <div className="flex items-center justify-center gap-2">
+          <Image
+            src="/logos/everlign.png"
+            alt="Everlign Logo"
+            width={24}
+            height={24}
+            className="w-6 h-auto"
+          />
+          <p className="text-sm text-gray-500">
+            Powered by Everlign. All rights reserved.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

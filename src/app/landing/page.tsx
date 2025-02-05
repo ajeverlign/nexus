@@ -8,11 +8,11 @@ function WelcomeContent() {
   const name = searchParams.get('name') || 'Guest';
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen">
+    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen relative">
       {/* Header with Logos */}
       <div className="bg-white shadow-md">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-8">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
             <Image
               src="/logos/LatentAilogo.png"
               alt="Latent.ai Logo"
@@ -20,14 +20,21 @@ function WelcomeContent() {
               height={40}
               className="h-8 w-auto"
             />
+            <Image
+              src="/logos/NexusByEverlign.jpg"
+              alt="Nexus by Everlign"
+              width={200}
+              height={60}
+              className="h-12 w-auto"
+            />
+            <Image
+              src="/logos/Nexus2025.jpg"
+              alt="Nexus 2025"
+              width={60}
+              height={60}
+              className="h-12 w-auto"
+            />
           </div>
-          <Image
-            src="/logos/Nexus2025.jpg"
-            alt="Nexus 2025"
-            width={60}
-            height={60}
-            className="h-12 w-auto"
-          />
         </div>
       </div>
 
@@ -40,7 +47,7 @@ function WelcomeContent() {
               Welcome to Nexus 2025
             </h1>
             <p className="text-lg text-gray-600">
-              Hello, {name}!
+              Hello, {name}! 🎉
             </p>
           </div>
 
@@ -63,6 +70,22 @@ function WelcomeContent() {
               Submit Response
             </button>
           </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="absolute bottom-4 left-0 right-0 text-center">
+        <div className="flex items-center justify-center gap-2">
+          <Image
+            src="/logos/everlign.png"
+            alt="Everlign Logo"
+            width={24}
+            height={24}
+            className="w-6 h-auto"
+          />
+          <p className="text-sm text-gray-500">
+            Powered by Everlign. All rights reserved.
+          </p>
         </div>
       </div>
     </div>
