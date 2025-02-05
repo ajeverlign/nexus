@@ -1,26 +1,23 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { questions } from '@/data/questions';
 
 export default function QRCodeGenerator() {
   const [name, setName] = useState('');
   const [qrCodeUrl, setQrCodeUrl] = useState('');
-  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [landingUrl, setLandingUrl] = useState('');  // Add this state
 
   useEffect(() => {
     if (name.trim()) {
       const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
-      const landingUrl = `${baseUrl}/landing?name=${encodeURIComponent(name)}`;
-      setQrCodeUrl(`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(landingUrl)}`);
+      const newLandingUrl = `${baseUrl}/landing?name=${encodeURIComponent(name)}`;
+      setLandingUrl(newLandingUrl);  // Store the landing URL
+      setQrCodeUrl(`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(newLandingUrl)}`);
     } else {
       setQrCodeUrl('');
+      setLandingUrl('');
     }
   }, [name]);
-
-  const filteredNames = questions
-    .map(q => q.name)
-    .filter(n => n.toLowerCase().includes(name.toLowerCase()));
 
   return (
     <div className="bg-white p-8 rounded-lg shadow-xl max-w-md w-full">
@@ -58,44 +55,22 @@ export default function QRCodeGenerator() {
         Generate your personalized event QR code
       </p>
       
-      {/* Name Input with Suggestions */}
-      <div className="mb-6 relative">
+      {/* Name Input */}
+      <div className="mb-6">
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Enter Your Name
         </label>
         <input
           type="text"
           value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-            setShowSuggestions(true);
-          }}
-          onFocus={() => setShowSuggestions(true)}
+          onChange={(e) => setName(e.target.value)}
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           placeholder="Type your name..."
         />
-        
-        {/* Name Suggestions */}
-        {showSuggestions && name && filteredNames.length > 0 && (
-          <div className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg">
-            {filteredNames.map((suggestion) => (
-              <div
-                key={suggestion}
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                onClick={() => {
-                  setName(suggestion);
-                  setShowSuggestions(false);
-                }}
-              >
-                {suggestion}
-              </div>
-            ))}
-          </div>
-        )}
       </div>
       
       {/* QR Code Display */}
-      {qrCodeUrl && (
+      {qrCodeUrl && landingUrl && (
         <div className="flex flex-col items-center">
           <div className="relative w-[200px] h-[200px] mb-4">
             <Image
@@ -109,7 +84,7 @@ export default function QRCodeGenerator() {
             Scan this QR code to view your question
           </p>
           <a 
-            href={qrCodeUrl.replace('https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=', '')} 
+            href={landingUrl}  // Use the stored landing URL directly
             target="_blank" 
             rel="noopener noreferrer"
             className="text-blue-600 hover:text-blue-700 text-sm font-medium"

@@ -2,12 +2,10 @@
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 import Image from 'next/image';
-import { getQuestionByName } from '@/data/questions';
 
 function WelcomeContent() {
   const searchParams = useSearchParams();
   const name = searchParams.get('name') || 'Guest';
-  const question = getQuestionByName(name);
 
   return (
     <div className="bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen">
@@ -59,7 +57,7 @@ function WelcomeContent() {
               Your Question:
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              {question}
+              What innovative approaches would you suggest for optimizing AI model performance in edge computing scenarios?
             </p>
           </div>
 
