@@ -4,6 +4,8 @@ const nextConfig = {
     domains: ['api.qrserver.com'],
     unoptimized: true,
   },
+  // Add this to prevent hydration errors from external scripts
+  reactStrictMode: true,
 }
 
 module.exports = nextConfig

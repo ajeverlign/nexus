@@ -6,7 +6,7 @@ interface QuestionData {
   export const questions: QuestionData[] = [
     {
       name: "John",
-      question: "What innovative approaches can we take to optimize AI model performance?"
+      question: "john teri ma ki nchu"
     },
     {
       name: "Emma",

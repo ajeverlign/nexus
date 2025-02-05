@@ -9,7 +9,7 @@ export default function QRCodeGenerator() {
 
   useEffect(() => {
     if (name.trim()) {
-      const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+      const baseUrl = window.location.origin;
       const newLandingUrl = `${baseUrl}/landing?name=${encodeURIComponent(name)}`;
       setLandingUrl(newLandingUrl);
       setQrCodeUrl(`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(newLandingUrl)}`);
@@ -22,45 +22,28 @@ export default function QRCodeGenerator() {
   return (
     <div className="bg-white p-8 rounded-lg shadow-xl max-w-md w-full relative min-h-[600px]">
       {/* Top Logos */}
-      <div className="flex justify-between items-center mb-8">
-        <Image
-          src="/logos/LatentAilogo.png"
-          alt="Latent.ai Logo"
-          width={100}
-          height={30}
-          className="h-6 w-auto"
-        />
+      <div className="flex justify-center mb-6">
         <Image
           src="/logos/Nexus2025.jpg"
           alt="Nexus 2025"
           width={40}
           height={40}
-          className="h-10 w-auto"
-        />
-      </div>
-
-      {/* Center Logo */}
-      <div className="flex justify-center mb-6">
-        <Image
-          src="/logos/NexusByEverlign.jpg"
-          alt="Nexus by Everlign"
-          width={200}
-          height={60}
-          className="w-48 h-auto"
+          className="h-12 w-auto center"
+          
         />
       </div>
 
       {/* Title with Latent.AI logo */}
-      <div className="flex items-center justify-center gap-2 mb-3">
+      <div className="flex items-center justify-center gap-3 mb-6">
         <Image
           src="/logos/LatentAilogo.png"
           alt="Latent.ai Logo"
-          width={30}
-          height={30}
-          className="h-6 w-auto"
+          width={35}
+          height={35}
+          className="h-8 w-auto"
         />
         <h1 className="text-3xl font-bold text-gray-800">
-          LATENT.AI
+          Latent.AI
         </h1>
       </div>
 
