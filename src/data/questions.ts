@@ -53,7 +53,15 @@ export const questions: Question[] = [
     question: "Once a voice that filled the space,\nNow I observe with a quieter grace,\nGuess my name"
   },
   {
-    name: "rahul",
+    name: "rahuld",
+    question: "From foosball triumphs to Satkar's tasty fare, our foodie adventures we love to share. The next course awaits, if you dare."
+  },
+  {
+    name: "rohit",
+    question: "From Resurg's rise to Pizza Hut's delight, a journey of learning, where your wisdom took flight. Since fresher days my own confidence has grown, credited to your guidance alone!"
+  },
+  {
+    name: "rahulc",
     question: "When expenses rise and profits fall, I make sense of it all"
   },
   {
