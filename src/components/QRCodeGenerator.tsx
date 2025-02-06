@@ -23,18 +23,7 @@ export default function QRCodeGenerator() {
 
   return (
     <div className="min-h-screen bg-gray-900 p-4 sm:p-6 flex flex-col">
-      {/* Top Nexus Logo - Much Bigger for Mobile */}
-      <div className="flex justify-center mb-6 mt-4">
-        <div className="relative w-48 h-48 sm:w-56 sm:h-56">
-          <Image
-            src="/logos/Nexus2025.jpg"
-            alt="Nexus 2025"
-            fill
-            className="object-contain"
-            priority
-          />
-        </div>
-      </div>
+      
 
       {/* Latent.AI Title Section */}
       <div className="flex flex-col items-center justify-center gap-3 mb-8">
