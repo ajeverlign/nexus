@@ -28,7 +28,7 @@ export default function QRCodeGenerator() {
           src="/logos/Nexus2025.jpg"
           alt="Nexus 2025"
           width={200}
-          height={200}
+          height={150}
           className="h-32 w-auto"
           priority
         />
@@ -39,8 +39,8 @@ export default function QRCodeGenerator() {
         <Image
           src="/logos/LatentAilogo.png"
           alt="Latent.ai Logo"
-          width={180}
-          height={60}
+          width={200}
+          height={80}
           className="h-12 w-auto"
           priority
         />
@@ -92,8 +92,8 @@ export default function QRCodeGenerator() {
           <Image
             src="/logos/everlign.png"
             alt="Everlign Logo"
-            width={24}
-            height={24}
+            width={28}
+            height={28}
             className="w-6 h-auto"
             priority
           />
