@@ -56,7 +56,7 @@ function WelcomeContent() {
               Hello, {name}! 🎉
             </p>
             <div className="text-sm sm:text-base text-blue-600 italic border-l-4 border-blue-600 pl-3 py-2 bg-blue-50">
-              "At Latent.AI, we're revolutionizing edge AI deployment, making intelligent solutions accessible and efficient."
+              &ldquo;At Latent.AI, we&apos;re revolutionizing edge AI deployment, making intelligent solutions accessible and efficient.&rdquo;
             </div>
           </div>
 
@@ -73,7 +73,7 @@ function WelcomeContent() {
                 🎯 <span className="font-semibold">Your Mission:</span> Find the person who wrote this question at our booth!
               </p>
               <p className="text-sm text-gray-600">
-                💡 <span className="font-semibold">Hint:</span> Look for someone wearing a Latent.AI badge who's an expert in this topic.
+                💡 <span className="font-semibold">Hint:</span> Look for someone wearing a Latent.AI badge who&apos;s an expert in this topic.
               </p>
             </div>
           </div>
