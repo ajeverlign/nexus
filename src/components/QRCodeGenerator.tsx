@@ -34,6 +34,9 @@ export default function QRCodeGenerator() {
         />
       </div>
 
+
+
+
       {/* Latent.AI Title Section - Enhanced */}
       <div className="flex flex-col items-center justify-center gap-3 mb-8">
         <Image
