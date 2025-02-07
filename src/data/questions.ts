@@ -54,7 +54,7 @@ export const questions: Question[] = [
   },
   {
     name: "rahuld",
-    question: "From foosball triumphs to Satkar's tasty fare, our foodie adventures we love to share. The next course awaits, if you dare."
+    question: "I juggle tasks, risks, and plans with care,Keeping projects on track, always aware.From kickoff to close, I lead the way,Find me fast—don’t delay"
   },
   {
     name: "rohit",
@@ -62,7 +62,7 @@ export const questions: Question[] = [
   },
   {
     name: "rahulc",
-    question: "When expenses rise and profits fall, I make sense of it all"
+    question: " I keep the budgets, and scope in sight,Guiding the team to deliver it right.With tasks and milestones, I make the call,Find me, and you'll solve it all!"
   },
   {
     name: "aakriti",
@@ -74,12 +74,12 @@ export const questions: Question[] = [
   },
   {
     name: "mugdha",
-    question: "I welcome new faces, say goodbye to a few,\nI help you learn, and help you renew.\nFrom policies to perks, I know them best,\nFind me now, complete your quest"
+    question: "I don’t build, I don’t create,But without me, projects miss their fate.A master of tasks, a leader with grace, Find me fast to win this race"
   }
 ];
 
 export function getQuestionByName(name: string): string {
-  const defaultQuestion = "Hmm, looks like this person might be keeping a low profile. Try asking around at the Latent.AI booth!";
+  const defaultQuestion = "Hmm, looks like this person might be keeping a High profile. Try asking around at the Latent.AI booth!";
   if (!name) return defaultQuestion;
   
   // Clean up the input name:
