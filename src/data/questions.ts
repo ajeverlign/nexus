@@ -46,7 +46,7 @@ export const questions: Question[] = [
   },
   {
     name: "sachin",
-    question: "I speak in codes, but not with words,\nI fix the glitches, crashes, and errors absurd.\nIf your screen goes blue or your email won't send,\nI'm the one you call, your techy friend"
+    question: "I juggle tasks, risks, and plans with care,Keeping projects on track, always aware.From kickoff to close, I lead the way,Find me fast—don’t delay"
   },
   {
     name: "ankit",
@@ -54,7 +54,7 @@ export const questions: Question[] = [
   },
   {
     name: "rahuld",
-    question: "I juggle tasks, risks, and plans with care,Keeping projects on track, always aware.From kickoff to close, I lead the way,Find me fast—don’t delay"
+    question: "From foosball triumphs to Satkar's tasty fare, our foodie adventures we love to share. The next course awaits, if you dare."
   },
   {
     name: "rohit",
