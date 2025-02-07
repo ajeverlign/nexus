@@ -10,7 +10,7 @@ export const questions: Question[] = [
   },
   {
     name: "zubair",
-    question: "Someone who can crack intellectual jokes"
+    question: "I arrive before the sun does rise, And leave when stars begin to light the skies. When games are sought, but partners few, I'm always there, a sporting friend to you."
   },
   {
     name: "ashwini",
@@ -38,7 +38,7 @@ export const questions: Question[] = [
   },
   {
     name: "khushi",
-    question: "At lunch, I served with grace,\nwhile you called yourself the clumsy one in this space.\nI'm known for my voice that resonates and my melodies that elevate.\nIf you can hum a tune, you might find your way to the right place."
+    question: "I nourish bodies, big and small, Providing sustenance for one and all. From rumbling tummies, I bring relief, A midday haven, a culinary brief"
   },
   {
     name: "pratiksha",
