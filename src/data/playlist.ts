@@ -29,7 +29,7 @@ export const playlist: Song[] = [
   {
     title: "Scene 4 - Loud Heavy Thunder, Lightning Strike",
     artist: "Nexus Team",
-    file: "/songs/Scene 4 - Loud Heavy Thunder, Lightning Strike.mp3"
+    file: "public/songs/loud-thunder-192165.mp3"
   },
   {
     title: "Scene 5 - Fast Ticking clock sound effect",
