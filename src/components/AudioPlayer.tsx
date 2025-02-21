@@ -70,7 +70,7 @@ const AudioPlayer = ({ playlist }: AudioPlayerProps) => {
   };
 
   const handleEnded = () => {
-    handleNext();
+    setIsPlaying(false);
   };
 
   const formatTime = (time: number) => {

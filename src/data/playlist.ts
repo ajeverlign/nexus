@@ -17,11 +17,6 @@ export const playlist: Song[] = [
     file: "/songs/Scene 2 - AI entry on the Stage - Hawa Hawai.mp3"
   },
   {
-    title: "Scene 2 - AI entry on the Stage",
-    artist: "Nexus Team",
-    file: "/songs/Scene 2 - AI entry on the Stage.mp3"
-  },
-  {
     title: "Scene 3 Song 1 - Apne kursi ki peti bandh lo, Mausam bigadne wala hai",
     artist: "Nexus Team",
     file: "/songs/Scene 3 Song 1 - Apne kursi ki peti bandh lo, Mausam bigadne wala hai.mp3"
