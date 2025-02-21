@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
@@ -27,7 +26,10 @@ const AudioPlayer = ({ playlist }: AudioPlayerProps) => {
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
-        audioRef.current.play();
+        audioRef.current.play().catch(error => {
+          console.error("Playback failed:", error);
+          setIsPlaying(false);
+        });
       } else {
         audioRef.current.pause();
       }
@@ -51,11 +53,24 @@ const AudioPlayer = ({ playlist }: AudioPlayerProps) => {
   };
 
   const handleNext = () => {
-    setCurrentSongIndex((prev) => (prev + 1) % playlist.length);
+    if (currentSongIndex < playlist.length - 1) {
+      setCurrentSongIndex(prev => prev + 1);
+      setIsPlaying(true);
+    } else {
+      setCurrentSongIndex(0);
+      setIsPlaying(false);
+    }
   };
 
   const handlePrevious = () => {
-    setCurrentSongIndex((prev) => (prev - 1 + playlist.length) % playlist.length);
+    if (currentSongIndex > 0) {
+      setCurrentSongIndex(prev => prev - 1);
+      setIsPlaying(true);
+    }
+  };
+
+  const handleEnded = () => {
+    handleNext();
   };
 
   const formatTime = (time: number) => {
@@ -65,59 +80,60 @@ const AudioPlayer = ({ playlist }: AudioPlayerProps) => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto bg-gray-800 rounded-lg p-4 shadow-lg">
+    <div className="w-full max-w-4xl mx-auto bg-gray-800 rounded-lg p-6 shadow-lg">
       <audio
         ref={audioRef}
         src={currentSong.file}
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
-        onEnded={handleNext}
+        onEnded={handleEnded}
       />
       
-      <div className="text-center mb-4">
-        <h2 className="text-xl font-bold text-white">{currentSong.title}</h2>
-        <p className="text-gray-400">{currentSong.artist}</p>
+      <div className="text-center mb-6">
+        <h2 className="text-2xl font-bold text-white mb-2">{currentSong.title}</h2>
+        <p className="text-gray-400 text-lg">Now Playing</p>
       </div>
 
-      <div className="mb-4">
-        <div className="h-1 bg-gray-600 rounded-full">
+      <div className="mb-6">
+        <div className="h-2 bg-gray-600 rounded-full">
           <div 
-            className="h-1 bg-blue-500 rounded-full"
+            className="h-2 bg-blue-500 rounded-full"
             style={{ width: `${(currentTime / duration) * 100}%` }}
           />
         </div>
-        <div className="flex justify-between text-sm text-gray-400 mt-1">
+        <div className="flex justify-between text-sm text-gray-400 mt-2">
           <span>{formatTime(currentTime)}</span>
           <span>{formatTime(duration)}</span>
         </div>
       </div>
 
-      <div className="flex items-center justify-center space-x-6">
+      <div className="flex items-center justify-center space-x-8 mb-8">
         <button 
           onClick={handlePrevious}
-          className="p-2 text-gray-400 hover:text-white transition"
+          className="p-3 text-gray-400 hover:text-white transition"
+          disabled={currentSongIndex === 0}
         >
-          <SkipBack size={24} />
+          <SkipBack size={28} />
         </button>
         
         <button 
           onClick={handlePlayPause}
-          className="p-3 bg-blue-500 rounded-full hover:bg-blue-600 transition"
+          className="p-4 bg-blue-500 rounded-full hover:bg-blue-600 transition"
         >
-          {isPlaying ? <Pause size={24} /> : <Play size={24} />}
+          {isPlaying ? <Pause size={32} /> : <Play size={32} />}
         </button>
         
         <button 
           onClick={handleNext}
-          className="p-2 text-gray-400 hover:text-white transition"
+          className="p-3 text-gray-400 hover:text-white transition"
         >
-          <SkipForward size={24} />
+          <SkipForward size={28} />
         </button>
       </div>
 
-      <div className="mt-6 w-full">
-        <h3 className="text-white font-semibold mb-2">Playlist</h3>
-        <div className="grid gap-2 w-full">
+      <div className="w-full">
+        <h3 className="text-white font-semibold mb-4 text-xl">Playlist</h3>
+        <div className="grid gap-2">
           {playlist.map((song, index) => (
             <div
               key={index}
@@ -125,7 +141,7 @@ const AudioPlayer = ({ playlist }: AudioPlayerProps) => {
                 setCurrentSongIndex(index);
                 setIsPlaying(true);
               }}
-              className={`p-3 rounded cursor-pointer transition w-full ${
+              className={`p-4 rounded cursor-pointer transition ${
                 currentSongIndex === index
                   ? 'bg-blue-500 text-white'
                   : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
